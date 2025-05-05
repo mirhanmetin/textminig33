@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
@@ -114,3 +115,19 @@ print("\nKarşılaştırma:")
 print(f"Naive Bayes Accuracy: {nb_acc:.4f}")
 print(f"LSTM Accuracy:       {lstm_acc:.4f}")
 
+# Naive Bayes ve LSTM için çubuklara accuracy değerlerini koyuyoruz
+accuracies = [nb_acc, lstm_acc]
+models = ['Naive Bayes', 'LSTM']
+
+# grafiği oluşturuyoruz
+plt.figure(figsize=(6, 4))
+plt.bar(models, accuracies, color=['blue', 'red'])
+plt.ylim(0, 1)
+plt.title('Model Accuracy Comparison')
+plt.ylabel('Accuracy')
+
+# grafiği göster
+plt.show()
+
+# conda ortamını aktive et : conda activate textml38
+# python textminig33.py ile çalıştır.
